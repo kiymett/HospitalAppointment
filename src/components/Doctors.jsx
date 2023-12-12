@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container"
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import {doctorData} from "../helper/data"
+import AddModal from "../components/AddModal"
 
 const Doctors = () => {
   console.log(doctorData)
@@ -20,6 +21,7 @@ const Doctors = () => {
         ))}
          
       </Row>
+      <AddModal/>
     </Container>
   )
 }
