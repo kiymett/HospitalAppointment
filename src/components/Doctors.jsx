@@ -6,10 +6,15 @@ import AddModal from "./AddModal";
 import { useState } from "react";
 
 const Doctors = () => {
-
+  const[drName, setDrName] = useState("")
   const[show, setShow] = useState(false);
   const handleClose = () => setShow (false);
-  const handleShow = () => setShow(true);
+  const handleShow = (name) => {
+    setShow(true)
+    setDrName(name)
+  }
+
+
 
   return (
     <Container className="p-2">
@@ -22,13 +27,13 @@ const Doctors = () => {
             <img src={img} 
             alt={name} 
             className="img-thumbnail doctor-img" 
-            onClick = {handleShow} />
+            onClick = {()=>handleShow(name)} />
             <h5>{name}</h5>
             <h6>{dep} </h6>
           </Col>
         ))}
       </Row>
-      <AddModal handleClose = {handleClose} show = {show}/>
+      <AddModal handleClose = {handleClose} show = {show} drName = {drName}/>
     </Container>
   );
 };
