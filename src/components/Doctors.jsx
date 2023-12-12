@@ -10,16 +10,15 @@ const Doctors = () => {
       <h3 className="display-6 mb-3" style={{ color: "rgb(166, 18, 189)" }}>
       </h3>
       <Row>
-        {doctorData.map(({id, name, dep, img}) =>(
-           <Col>
-           <img src = {img} alt = {name}/>
+        {doctorData.map(({id, name, dep, img}) => (
+           <Col key ={id} >
+           <img src = {img} alt = {name} className ="img-thumbnail doctor-img"/>
            <h5>{name}</h5> 
            <h5>{dep}</h5> 
            </Col>
           
         ))}
          
-
       </Row>
     </Container>
   )
