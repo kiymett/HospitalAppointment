@@ -3,12 +3,15 @@ import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import { TiDelete } from "react-icons/ti";
 
+
 const AppointmentList = ({ appointments, handleDelete, handleDoubleClick }) => {
   return (
     <Container className="p-2">
       <h3 className="display-6 mb-2" style={{ color: "salmon" }}>
         Appointment List
       </h3>
+
+      {appointments.length == 0 && (<img src = "./img/appointment.jpg" alt="appointment" width = "70%"/>)}
     
 
       {appointments.map(({ id, patient, consulted, doctor, day }) => (
