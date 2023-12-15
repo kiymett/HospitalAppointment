@@ -19,6 +19,7 @@ const AppointmentList = ({ appointments, handleDelete, handleDoubleClick }) => {
           key={id}
           className={consulted ? "appointments consulted" : "appointments"}
           role="button"
+          onDoubleClick ={()=> handleDoubleClick(id)}
       
         >
           <Row className="justify-content-between align-items-center">

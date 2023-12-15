@@ -14,11 +14,19 @@ const Home = () => {
     const filteredList = appointments.filter((item) => item.id !== id)
     setAppointments(filteredList);
   }
+
+  const handleDoubleClick= (id) => {
+    console.log(id)
+    const updatedList = appointments.map(item => item.id === id ? {...item, consulted: !item.consulted}: item);
+    setAppointments(updatedList);
+  } 
   return (
     <main className="text-center mt-2">
       <h1 className="display-5 text-danger">CLARUS HOSPITAL</h1>
       <Doctors handleAdd = {handleAdd}/>
-      <AppointmentList appointments = {appointments} handleDelete = {handleDelete}/>
+      <AppointmentList appointments = {appointments} 
+      handleDelete = {handleDelete} 
+      handleDoubleClick= {handleDoubleClick}/>
     </main>
   )
 }
