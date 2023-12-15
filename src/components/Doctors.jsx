@@ -5,7 +5,7 @@ import { doctorData } from "../helper/data";
 import AddModal from "./AddModal";
 import { useState } from "react";
 
-const Doctors = () => {
+const Doctors = ({handleAdd}) => {
   const[drName, setDrName] = useState("")
   const[show, setShow] = useState(false);
   const handleClose = () => setShow (false);
@@ -14,8 +14,6 @@ const Doctors = () => {
     setDrName(name)
   }
 
-
-
   return (
     <Container className="p-2">
       <h3 className="display-6 mb-3" style={{ color: "salmon" }}>
@@ -23,7 +21,7 @@ const Doctors = () => {
       </h3>
       <Row>
         {doctorData.map(({ id, img, dep, name }) => (
-          <Col key={id}>
+          <Col xs= {6} md = {4} lg= {3} key={id}>
             <img src={img} 
             alt={name} 
             className="img-thumbnail doctor-img" 
@@ -33,7 +31,10 @@ const Doctors = () => {
           </Col>
         ))}
       </Row>
-      <AddModal handleClose = {handleClose} show = {show} drName = {drName}/>
+      <AddModal handleClose = {handleClose} 
+      show = {show} 
+      drName = {drName}
+      handleAdd = {handleAdd}/>
     </Container>
   );
 };
